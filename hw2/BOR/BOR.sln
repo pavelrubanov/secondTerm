@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BOR", "BOR.csproj", "{BE1A97A4-739A-4A61-BC4A-1F10DED38B17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BorTests", "BorTests\BorTests.csproj", "{7AD0402E-2599-43F3-BB95-4B81FBE278C1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE1A97A4-739A-4A61-BC4A-1F10DED38B17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE1A97A4-739A-4A61-BC4A-1F10DED38B17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE1A97A4-739A-4A61-BC4A-1F10DED38B17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE1A97A4-739A-4A61-BC4A-1F10DED38B17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AD0402E-2599-43F3-BB95-4B81FBE278C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AD0402E-2599-43F3-BB95-4B81FBE278C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AD0402E-2599-43F3-BB95-4B81FBE278C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AD0402E-2599-43F3-BB95-4B81FBE278C1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1EBD94A4-7C68-4EE5-9F63-D26F90FFEA6E}
+	EndGlobalSection
+EndGlobal
