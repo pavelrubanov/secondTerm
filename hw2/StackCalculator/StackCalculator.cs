@@ -11,6 +11,11 @@ namespace StackCalculator
     {
         public static double Calculate(string expression, IStack stack)
         {
+            if (!stack.IsEmpty())
+            {
+                throw new ArgumentException("Stack should be empty");
+            }
+
             if (expression == null)
             {
                 throw new ArgumentNullException();
