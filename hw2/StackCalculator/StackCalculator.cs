@@ -9,6 +9,15 @@ namespace StackCalculator
 {
     public static class StackCalculator
     {
+        /// <summary>
+        /// Returns the result of evaluating an expression
+        /// </summary>
+        /// <param name="expression">Only postfix notation</param>
+        /// <param name="stack"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="DivideByZeroException"></exception>
         public static double Calculate(string expression, IStack stack)
         {
             if (!stack.IsEmpty())
