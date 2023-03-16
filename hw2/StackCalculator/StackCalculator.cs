@@ -53,6 +53,7 @@ namespace StackCalculator
                                     {
                                         throw new DivideByZeroException();
                                     }
+                                    stack.Push(number1 / number2);
                                     break;
                             }
                         }
