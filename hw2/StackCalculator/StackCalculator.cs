@@ -35,8 +35,8 @@ namespace StackCalculator
                     {
                         try
                         {
-                            var number1 = stack.Pop();
                             var number2 = stack.Pop();
+                            var number1 = stack.Pop();
                             switch(element)
                             {
                                 case "+":
