@@ -10,7 +10,7 @@ namespace StackCalculator
     public static class StackCalculator
     {
         /// <summary>
-        /// Returns the result of evaluating an expression
+        /// Returns the result of computing an expression
         /// </summary>
         /// <param name="expression">Only postfix notation</param>
         /// <param name="stack"></param>
@@ -30,46 +30,49 @@ namespace StackCalculator
                 throw new ArgumentNullException();
             }
 
-            var dictionary = "0123456789/*-+ ";
-            if (!(expression.All(el => dictionary.Contains(el))))
+            if (expression == "")
             {
-                throw new ArgumentException("Incorrect symbols in expression");
+                throw new ArgumentException("Empty expression");
             }
 
-            var operations = "/*-+";
-            foreach (var element in expression.Split(" "))
+            var dictionary = "0123456789/*-+ ";
+            foreach (var symbol in expression)
             {
-                if (double.TryParse(element, out double number))
+                if (!dictionary.Contains(symbol))
+                {
+                    throw new ArgumentException("Incorrect symbols in expression");
+                }
+            }
+
+            var operations = new Dictionary<string, Func<double, double, double>>();
+            operations.Add("+", (x, y) => x + y);
+            operations.Add("-", (x, y) => x - y);
+            operations.Add("*", (x, y) => x * y);
+            operations.Add("/", (x, y) =>
+            {
+                if (Math.Abs(y) < 1e-9)
+                {
+                    throw new DivideByZeroException();
+                }
+                return x / y;
+            }
+            );
+
+            foreach (var element in expression.Split())
+            {
+                if (int.TryParse(element, out int number))
                 {
                     stack.Push(number);
                 }
                 else
                 {
-                    if (operations.Contains(element))
+                    if (operations.ContainsKey(element))
                     {
                         try
                         {
                             var number2 = stack.Pop();
                             var number1 = stack.Pop();
-                            switch(element)
-                            {
-                                case "+":
-                                    stack.Push(number1 + number2);
-                                    break;
-                                case "-":
-                                    stack.Push(number1 - number2);
-                                    break;
-                                case "*":
-                                    stack.Push(number1 * number2);
-                                    break;
-                                case "/":
-                                    if (Math.Abs(number2) < 1e-9)
-                                    {
-                                        throw new DivideByZeroException();
-                                    }
-                                    stack.Push(number1 / number2);
-                                    break;
-                            }
+                            stack.Push(operations[element](number1,number2));
                         }
                         catch (InvalidOperationException)
                         {

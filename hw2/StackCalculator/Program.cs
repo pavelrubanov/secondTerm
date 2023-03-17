@@ -19,11 +19,19 @@ namespace StackCalculator.Program
                 Console.WriteLine("Result from calculator with StackOnLinkedList: " + result1);
                 Console.WriteLine("Result from calculator with StackOnList: " + result2);
             }
-            catch (Exception ex)
+            catch (DivideByZeroException ex)
             {
                 Console.WriteLine(ex.Message);
             }
-
+            catch (ArgumentNullException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            
 
         }
     }
