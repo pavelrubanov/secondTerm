@@ -6,8 +6,15 @@ using System.Threading.Tasks;
 
 namespace UniqueList
 {
-    internal class UniqueList<T> : List<T>
+    /// <summary>
+    /// doubly linked list with unique elements
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public class UniqueList<T> : List<T>
     {
+
+        /// <param name="value"></param>
+        /// <returns></returns>
         public bool Contains(T value)
         {
             foreach (var elementValue in this)
@@ -17,6 +24,9 @@ namespace UniqueList
             } 
             return false;
         }
+
+        /// <param name="value"></param>
+        /// <exception cref="ElementAlreadyExistException"></exception>
         public override void Add(T value)
         {
             if (!Contains(value))
@@ -26,10 +36,17 @@ namespace UniqueList
                 throw new ElementAlreadyExistException();
             }
         }
-        public override void Change(int index, T value)
+
+        /// <param name="index"></param>
+        /// <param name="newValue"></param>
+        /// <exception cref="ElementAlreadyExistException"></exception>
+        public override void Change(int index, T newValue)
         {
-            if (!Contains(value))
-                base.Change(index, value);
+            if (this[index].Equals(newValue))
+                return;
+
+            if (!Contains(newValue))
+                base.Change(index, newValue);
             else
             {
                 throw new ElementAlreadyExistException();

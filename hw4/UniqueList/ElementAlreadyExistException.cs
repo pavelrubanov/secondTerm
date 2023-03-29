@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UniqueList
 {
-    internal class ElementAlreadyExistException : Exception
+    public class ElementAlreadyExistException : Exception
     {
     }
 }
