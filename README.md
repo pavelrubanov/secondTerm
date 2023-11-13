@@ -1,2 +1,1 @@
-# secondTerm
-Programming homework for Litvinov. (watch branches)
+# secondTerm. Programming homework for Litvinov. (watch branches)
